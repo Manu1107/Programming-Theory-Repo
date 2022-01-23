@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6ab4a2ac13ffe418b32475164d7a9a, type: 3}
   m_Name: BasicHit
   m_EditorClassIdentifier: 
-  name: 
-  cooldownTime: 0
-  activeTime: 0
-  attackBluePrefab: {fileID: 0}
-  spellGenerator: {fileID: 0}
+  name: Basic Hit
+  cooldownTime: 0.5
+  activeTime: 0.5
+  particlePlayed: {fileID: 0}
+  attackBluePrefab: {fileID: 7231729829799365465, guid: 6adb474a8f8001145b51cfc2062b18a9, type: 3}
