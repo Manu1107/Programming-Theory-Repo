@@ -14,14 +14,14 @@ public class AbilityHolder : MonoBehaviour
     float cooldownTime;
     float activeTime;
 
-    enum AbilityState
+    public enum AbilityState
     {
         ready,
         active,
         cooldown
     }
 
-    AbilityState state = AbilityState.ready;
+    public AbilityState state = AbilityState.ready;
 
     public KeyCode key;
 
@@ -36,14 +36,12 @@ public class AbilityHolder : MonoBehaviour
                     ability.Activate(gameObject);
                     state = AbilityState.active;
                     activeTime = ability.activeTime;
-                    UIBasicAbility.fillAmount = 0;
                 }
             break;
             case AbilityState.active:
                 if(activeTime > 0)
                 {
                     activeTime -= Time.deltaTime;
-                    RefillAbilityUI();
                 }
                 else
                 {
@@ -56,7 +54,6 @@ public class AbilityHolder : MonoBehaviour
                 if(cooldownTime > 0)
                 {
                     cooldownTime -= Time.deltaTime;
-                    RefillAbilityUI();
                 }
                 else
                 {
@@ -66,11 +63,6 @@ public class AbilityHolder : MonoBehaviour
         }
 
         SyncEffectWithCharacter();
-    }
-
-    private void RefillAbilityUI()
-    {
-        UIBasicAbility.fillAmount += (Time.deltaTime);
     }
 
     private void SyncEffectWithCharacter()

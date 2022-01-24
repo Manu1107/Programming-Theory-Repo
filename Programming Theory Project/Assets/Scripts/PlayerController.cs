@@ -13,16 +13,15 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundMask;
 
     private Animator animator;
-    private Rigidbody playerRb;
 
     Vector3 velocity;
     bool isGrounded;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GameObject.Find("Player").GetComponent<Animator>();
-        playerRb = GameObject.Find("Player").GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -34,7 +33,6 @@ public class PlayerController : MonoBehaviour
     private void AnimateMovement()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
 
         if (isGrounded && velocity.y < 0)
         {
@@ -75,14 +73,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             animator.SetFloat("velocityVertical", 0.0f);
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("weapon"))
-        {
-            animator.Play("GetHit");
         }
     }
 }

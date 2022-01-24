@@ -19,6 +19,7 @@ public class HealthBar : MonoBehaviour
     private void HealthSystem_OnHealthChanged(object sender, EventArgs e)
     {
         UIlifeBar.fillAmount = healthSystem.GetHealthPercent();
+
         if(healthSystem.GetHealthPercent() < 0.6f && healthSystem.GetHealthPercent() > 0.4f)
         {
             UIlifeBar.color = new Color(255f, 255f, 255f);
